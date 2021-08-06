@@ -23,10 +23,6 @@ export function createEntry() {
           createElement('section', {
             className: styles.list__section,
             childElements: [
-              createElement('p', {
-                className: styles.section__type,
-                innerText: 'Verb',
-              }),
               createElement('div', {
                 className: styles.section__definition,
                 childElements: [
@@ -44,9 +40,18 @@ export function createEntry() {
               createElement('div', {
                 className: styles.section__example,
                 childElements: [
-                  createElement('p', {
-                    className: styles.example__heading,
-                    innerText: 'Example',
+                  createElement('div', {
+                    className: styles.type__flex,
+                    childElements: [
+                      createElement('p', {
+                        className: styles.example__heading,
+                        innerText: 'Example',
+                      }),
+                      createElement('p', {
+                        className: styles.section__type,
+                        innerText: 'Verb',
+                      }),
+                    ],
                   }),
                   createElement('p', {
                     className: styles.example__text,
