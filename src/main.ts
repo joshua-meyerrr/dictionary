@@ -1,43 +1,26 @@
 import { createEntry } from './components/entry/entry';
 import styles from './style.module.css';
+import { Entry } from './types';
 import { createElement } from './utils/createElement';
+import { getEntry } from './utils/api';
 
 const app = document.querySelector<HTMLDivElement>('#app');
 
-const definition = {
-  word: 'code',
-  phonetics: '/koʊd/',
-  sound: 'play',
+const test = await getEntry();
+console.log(test);
+
+const defaultEntry: Entry = {
+  word: 'doublethink',
+  phonetics: '/ˈdə-bəl-ˌthiŋk/',
   meanings: [
     {
-      type: 'verb',
-      definitions: [
-        {
-          definition:
-            'Convert (the words of a message) into a particular code in order to convey a secret meaning.',
-          example:
-            'only Mitch knew how to read the message—even the name was coded',
-        },
-        {
-          definition: 'Write code for (a computer program)',
-          example: 'most developers code C + + like C',
-        },
-      ],
-    },
-    {
       type: 'noun',
-      definitions: [
-        {
-          definition:
-            'A system of words, letters, figures, or other symbols substituted for other words, letters, etc., especially for the purposes of secrecy.',
-          example:
-            'only Mitch knew how to read the message—even the name was coded',
-        },
-        {
-          definition: 'Write code for (a computer program)',
-          example: 'most developers code C + + like C',
-        },
-      ],
+      text: {
+        definition:
+          'The acceptance of contrary opinions or beliefs at the same time, especially as a result of political indoctrination.',
+        example:
+          'By an amazing exploit of doublethink, he manages to convince himself that theistic explanations are simple explanations.',
+      },
     },
   ],
 };
@@ -45,7 +28,7 @@ const definition = {
 const mainEl = createElement('main', {
   childElements: [
     createElement('h1', {
-      innerText: '<cool name here>',
+      innerText: 'Vocabulous',
       className: styles.heading,
     }),
     createElement('input', {
@@ -54,7 +37,7 @@ const mainEl = createElement('main', {
     }),
     createElement('div', {
       className: styles.results,
-      childElements: [createEntry(), createEntry()],
+      childElements: [createEntry(defaultEntry)],
     }),
   ],
 });
