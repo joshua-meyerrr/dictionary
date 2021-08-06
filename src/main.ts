@@ -1,3 +1,4 @@
+import { createEntry } from './components/entry/entry';
 import styles from './style.module.css';
 import { createElement } from './utils/createElement';
 
@@ -53,6 +54,7 @@ const mainEl = createElement('main', {
     }),
     createElement('div', {
       className: styles.results,
+      childElements: [createEntry(), createEntry()],
     }),
   ],
 });
