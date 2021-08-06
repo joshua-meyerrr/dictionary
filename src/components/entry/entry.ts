@@ -55,6 +55,15 @@ export function createEntry() {
                   }),
                 ],
               }),
+              createElement('ul', {
+                className: styles.definition__synonyms,
+                childElements: [
+                  createElement('li', {
+                    className: styles.synonym,
+                    innerText: 'programming',
+                  }),
+                ],
+              }),
             ],
           }),
         ],
