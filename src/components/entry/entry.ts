@@ -59,6 +59,7 @@ export function createEntry(def: Entry): HTMLElement {
             innerText: def.word,
           }),
           createElement('p', {
+            className: styles.phonetics,
             innerText: def.phonetics,
           }),
         ],

@@ -42,7 +42,7 @@ ul {
 }
 
 .header__heading {
-  padding-right: 0.5rem;
+  padding-right: 1rem;
 }
 
 .definition__heading,
@@ -68,4 +68,8 @@ ul {
   background-color: #fff;
   padding: 0.2rem 0.75rem 0.4rem 0.75rem;
   border-radius: 12px;
+}
+
+.phonetics {
+  color: #f7c548;
 }
