@@ -1,7 +1,50 @@
 import { createElement } from '../../utils/createElement';
 import styles from './entry.module.css';
 
-export function createEntry() {
+function createSection(meaning) {
+  return createElement('section', {
+    className: styles.list__section,
+    childElements: [
+      createElement('div', {
+        className: styles.section__definition,
+        childElements: [
+          createElement('p', {
+            className: styles.definition__heading,
+            innerText: 'Definiton:',
+          }),
+          createElement('p', {
+            className: styles.definition__text,
+            innerText: meaning.definitions[0].definition,
+          }),
+        ],
+      }),
+      createElement('div', {
+        className: styles.section__example,
+        childElements: [
+          createElement('div', {
+            className: styles.type__flex,
+            childElements: [
+              createElement('p', {
+                className: styles.example__heading,
+                innerText: 'Example',
+              }),
+              createElement('p', {
+                className: styles.section__type,
+                innerText: meaning.type,
+              }),
+            ],
+          }),
+          createElement('p', {
+            className: styles.example__text,
+            innerText: meaning.definitions[0].example,
+          }),
+        ],
+      }),
+    ],
+  });
+}
+
+export function createEntry(def) {
   return createElement('article', {
     className: styles.wrapper,
     childElements: [
@@ -10,68 +53,16 @@ export function createEntry() {
         childElements: [
           createElement('h2', {
             className: styles.header__heading,
-            innerText: 'Code',
+            innerText: def.word,
           }),
           createElement('p', {
-            innerText: '/koʊd/',
+            innerText: def.phonetics,
           }),
         ],
       }),
       createElement('div', {
         className: styles.entry__list,
-        childElements: [
-          createElement('section', {
-            className: styles.list__section,
-            childElements: [
-              createElement('div', {
-                className: styles.section__definition,
-                childElements: [
-                  createElement('p', {
-                    className: styles.definition__heading,
-                    innerText: 'Definiton:',
-                  }),
-                  createElement('p', {
-                    className: styles.definition__text,
-                    innerText:
-                      'Convert (the words of a message) into a particular code in order to convey a secret meaning.',
-                  }),
-                ],
-              }),
-              createElement('div', {
-                className: styles.section__example,
-                childElements: [
-                  createElement('div', {
-                    className: styles.type__flex,
-                    childElements: [
-                      createElement('p', {
-                        className: styles.example__heading,
-                        innerText: 'Example',
-                      }),
-                      createElement('p', {
-                        className: styles.section__type,
-                        innerText: 'Verb',
-                      }),
-                    ],
-                  }),
-                  createElement('p', {
-                    className: styles.example__text,
-                    innerText:
-                      'only Mitch knew how to read the message—even the name was coded',
-                  }),
-                ],
-              }),
-              createElement('ul', {
-                className: styles.definition__synonyms,
-                childElements: [
-                  createElement('li', {
-                    className: styles.synonym,
-                    innerText: 'programming',
-                  }),
-                ],
-              }),
-            ],
-          }),
-        ],
+        childElements: def.meanings.map((meaning) => createSection(meaning)),
       }),
     ],
   });
