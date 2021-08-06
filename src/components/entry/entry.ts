@@ -1,7 +1,8 @@
 import { createElement } from '../../utils/createElement';
 import styles from './entry.module.css';
+import { Text, Entry } from '../../types';
 
-function createSection(meaning) {
+function createSection(meaning: Text) {
   return createElement('section', {
     className: styles.list__section,
     childElements: [
@@ -14,7 +15,7 @@ function createSection(meaning) {
           }),
           createElement('p', {
             className: styles.definition__text,
-            innerText: meaning.definitions[0].definition,
+            innerText: meaning.text.definition,
           }),
         ],
       }),
@@ -36,7 +37,9 @@ function createSection(meaning) {
           }),
           createElement('p', {
             className: styles.example__text,
-            innerText: meaning.definitions[0].example,
+            innerText: meaning.text.example
+              ? meaning.text.example
+              : 'There is no example',
           }),
         ],
       }),
@@ -44,7 +47,7 @@ function createSection(meaning) {
   });
 }
 
-export function createEntry(def) {
+export function createEntry(def: Entry): HTMLElement {
   return createElement('article', {
     className: styles.wrapper,
     childElements: [
