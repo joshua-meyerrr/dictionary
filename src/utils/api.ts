@@ -1,10 +1,19 @@
 import { Entry, EntryFromAPI } from '../types';
 
 export async function getEntry(search?: string): Promise<Entry[]> {
-  const response = await fetch(
-    `https://api.dictionaryapi.dev/api/v2/entries/en_US/${search ? search : ''}`
+  let response = await fetch(
+    `https://api.dictionaryapi.dev/api/v2/entries/en_US/${
+      search ? search : 'error'
+    }`
   );
+  if (response.status === 404) {
+    response = await fetch(
+      `https://api.dictionaryapi.dev/api/v2/entries/en_US/error`
+    );
+  }
+
   const data: EntryFromAPI[] = await response.json();
+
   const formattedEntries: Entry[] = data.map((entry) => {
     const formattedEntry: Entry = {
       word: entry.word,
