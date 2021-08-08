@@ -10,8 +10,8 @@ function createSection(meaning: Text) {
         className: styles.section__definition,
         childElements: [
           createElement('p', {
-            className: styles.definition__heading,
-            innerText: 'Definiton:',
+            className: styles.section__type,
+            innerText: meaning.type,
           }),
           createElement('p', {
             className: styles.definition__text,
@@ -22,23 +22,10 @@ function createSection(meaning: Text) {
       createElement('div', {
         className: styles.section__example,
         childElements: [
-          createElement('div', {
-            className: styles.type__flex,
-            childElements: [
-              createElement('p', {
-                className: styles.example__heading,
-                innerText: 'Example',
-              }),
-              createElement('p', {
-                className: styles.section__type,
-                innerText: meaning.type,
-              }),
-            ],
-          }),
           createElement('p', {
             className: styles.example__text,
             innerText: meaning.text.example
-              ? meaning.text.example
+              ? `// ${meaning.text.example}`
               : 'There is no example',
           }),
         ],
@@ -60,7 +47,7 @@ export function createEntry(def: Entry): HTMLElement {
           }),
           createElement('p', {
             className: styles.phonetics,
-            innerText: def.phonetics,
+            innerText: `/${def.phonetics}/`,
           }),
         ],
       }),

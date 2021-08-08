@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=STIX+Two+Text:wght@400;600;700&display=swap');
 
 #app {
   font-family: 'Source Sans Pro', sans-serif;
@@ -16,10 +16,14 @@
   padding: 0;
 }
 
+p {
+  letter-spacing: 0.045rem;
+}
+
 body {
-  font-family: 'Source Sans Pro', sans-serif;
-  color: #fff;
-  background-color: #232323;
+  font-family: 'STIX Two Text', serif;
+  color: #f2cd92;
+  background-color: #231f2a;
 }
 
 main {
@@ -32,9 +36,11 @@ input:focus {
 }
 
 .heading {
-  color: #fff;
-  font-size: 5rem;
-  padding-top: 3rem;
+  color: #f2cd92;
+  font-size: 8rem;
+  padding-top: 4rem;
+  padding-right: 1rem;
+  padding-left: 1rem;
   padding-bottom: 2rem;
 }
 
@@ -43,27 +49,27 @@ input:focus {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border: 1px solid #f0c57f;
+  border-radius: 5px;
+  padding: 0.5rem;
 }
 
 .search__bar {
   font-size: 2rem;
-  background-color: #333;
+  background-color: transparent;
   border: none;
   padding: 0.5rem 0.75rem;
   border-radius: 10px;
-  color: #fff;
+  color: #f2cd92;
 }
 
 .search__button {
-  height: 2.8rem;
-  font-size: 1.8rem;
-  font-weight: lighter;
-  border: none;
-  border-radius: 5px;
-  padding: 0 0.45rem;
+  height: 0;
+  width: 0;
+  opacity: 0;
 }
 
 .results {
-  padding-top: 4rem;
-  max-width: 1100px;
+  padding-top: 6rem;
+  max-width: 1000px;
 }
