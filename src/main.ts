@@ -8,7 +8,7 @@ const app = document.querySelector<HTMLDivElement>('#app');
 
 const defaultEntry: Entry = {
   word: 'doublethink',
-  phonetics: '/ˈdə-bəl-ˌthiŋk/',
+  phonetics: 'ˈdə-bəl-ˌthiŋk',
   meanings: [
     {
       type: 'noun',
