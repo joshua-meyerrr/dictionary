@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600&display=swap');
+
+ul {
+  list-style: none;
+}
+
+.wrapper {
+  font-size: 1.75rem;
+}
+
+.entry__header {
+  font-size: 2.25rem;
+  display: flex;
+  align-items: center;
+  padding-bottom: 1.5rem;
+  justify-content: center;
+}
+
+.list__section {
+  border-radius: 10px;
+  padding: 0 1rem 1rem 0.5rem;
+}
+
+.section__type {
+  color: #ff5376;
+  font-size: 2rem;
+  font-weight: 600;
+  padding-bottom: 0.5rem;
+}
+
+.example__text {
+  padding-bottom: 0.5rem;
+  color: grey;
+}
+
+.definition__text {
+  padding-bottom: 0.5rem;
+}
+
+.header__heading {
+  padding-right: 1rem;
+}
+
+.phonetics {
+  color: #ff5376;
+}
