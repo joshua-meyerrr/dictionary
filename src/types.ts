@@ -2,7 +2,7 @@ export type Text = {
   type: string;
   text: {
     definition: string;
-    example: string;
+    example?: string;
   };
 };
 
@@ -14,8 +14,13 @@ export type Entry = {
 
 export type EntryFromAPI = {
   word: string;
-  phonetics: string[];
+  phonetics: PhoneticsFromAPI[];
   meanings: MeaningsFromAPI[];
+};
+
+export type PhoneticsFromAPI = {
+  text: string;
+  audio: string;
 };
 
 export type MeaningsFromAPI = {
